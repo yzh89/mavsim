@@ -1,5 +1,5 @@
 
-function drawVehicle(uu,V,F,patchcolors)
+function drawAircraft(uu,V,F,patchcolors)
 
     % process inputs to function
     pn       = uu(1);       % inertial North position     
@@ -121,29 +121,37 @@ function [V,F,facecolors] = defineVehicleBody
 
 % Define the vertices (physical location of vertices
 V = [...
-    1, 0, 0;...   % pt 1
-    -1, -2, 0;... % pt 2
-    0, 0, 0;...   % pt 3
-    -1, 2, 0;...  % pt 4
-    0, 0, -1;...  % pt 5
-    1, 0, 0;...   % pt 6
-    0, -1.4, 0;...      % pt 7
-    -0.2, -1.4, 0;...   % pt 8
-    -0.2, 1.4, 0;...    % pt 9
-    0, 1.4, 0;...       % pt 10     
-    1, 0, 0;...   % pt 11
-    -1, -2, 0;... % pt 12
-    0, 0, 0;...   % pt 13
-    -1, 2, 0;...  % pt 14
-    0, 0, -1;...  % pt 15
-    1, 0, 0;...   % pt 16
+    1.5, 0, 0;...   % pt 1
+    1, .25, -0.25;... % pt 2
+    1, -.25, -0.25;...   % pt 3
+    1, -.25, 0.25;...  % pt 4
+    1, 0.25, 0.25;...  % pt 5
+    -4, 0, 0;...   % pt 6
+    0, -3, 0;...      % pt 7
+    -1.5, -3, 0;...   % pt 8
+    -1.5, 3, 0;...    % pt 9
+    0, 3, 0;...       % pt 10     
+    -3, 1.5, 0;...   % pt 11
+    -4, 1.5, 0;... % pt 12
+    -4, -1.5, 0;...   % pt 13
+    -3, -1.5, 0;...  % pt 14
+    -3, 0, 0;...  % pt 15
+    -4, 0, -1.5;...   % pt 16
     ]';
 
 % define faces as a list of vertices numbered above
   F = [...
-        1, 2, 3;...  % left wing
-        1, 3, 4;...  % right wing
-        1, 3, 5;...  % tail 
+        7, 8, 9, 10;...  % wing
+        11, 12, 13, 14;...  % tail
+        16, 15, 6, NaN;...  % tail 2
+        1, 2, 3, NaN;...  % front 1
+        1, 3, 4, NaN;...  % front 2
+        1, 4, 5, NaN;...  % front 3
+        1, 5, 2, NaN;...  % front 4
+        2, 3, 6, NaN;...  % mid 1
+        3, 4, 6, NaN;...  % mid 2
+        6, 4, 5, NaN;...  % mid 3
+        6, 2, 5, NaN;...  % mid 4
         ];
 
 % define colors for each face    
@@ -154,9 +162,17 @@ V = [...
   mycyan = [0, 1, 1];
 
   facecolors = [...
-    mygreen;...    % left wing
-    mygreen;...    % right wing
-    myblue;...     % tail
+      mygreen;...  % wing
+      mygreen;...  % tail
+      myblue;...  % tail 2
+      myyellow;...  % front 1
+      myyellow;...  % front 2
+      myyellow;...  % front 3
+      myyellow;...  % front 4
+      myblue;...  % mid 1
+      myblue;...  % mid 2
+      myblue;...  % mid 3
+      myblue;...  % mid 4
     ];
 end
   

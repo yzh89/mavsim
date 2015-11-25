@@ -35,19 +35,22 @@ function out = forces_moments(x, delta, wind, P)
     u_wg    = wind(4); % gust along body x-axis
     v_wg    = wind(5); % gust along body y-axis    
     w_wg    = wind(6); % gust along body z-axis
-    
+        
     % compute wind data in NED
-    w_n = 0;
-    w_e = 0;
-    w_d = 0;
+    
+    w_n = w_ns+ [cos(theta)*cos(psi) sin(phi)*sin(theta)*cos(psi)-cos(phi)*sin(psi) cos(phi)*sin(theta)*cos(psi)+sin(phi)*sin(psi)]*[u_wg, v_wg, w_wg]';
+    w_e = w_es+ [cos(theta)*sin(psi) sin(phi)*sin(theta)*sin(psi)+cos(phi)*cos(psi) cos(phi)*sin(theta)*sin(psi)-sin(phi)*cos(psi)]*[u_wg, v_wg, w_wg]';
+    w_d = w_ds+ [-sin(theta) sin(phi)*cos(theta) cos(phi)*cos(theta)]*[u_wg, v_wg, w_wg]';    
     
     % compute air data
     Va = 0;
     alpha = 0;
     beta = 0;
     
+    Cx = - P.C_D_alpha*cos(alpha)
+    
     % compute external forces and torques on aircraft
-    Force(1) =  0;
+    Force(1) =  -P.mass*g*sin(theta)+1/2*P.rho*Va^2*P.S_wing*;
     Force(2) =  0;
     Force(3) =  0;
     
