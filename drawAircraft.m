@@ -34,7 +34,8 @@ function drawAircraft(uu,V,F,patchcolors)
         ylabel('North')
         zlabel('-Down')
         view(32,47)  % set the vieew angle for figure
-        axis([-10,10,-10,10,-10,10]);
+        axis([-1000,1000,-1000,1000,-50,1000]);
+        grid on
         hold on
         
     % at every other time step, redraw base and rod
@@ -139,6 +140,8 @@ V = [...
     -4, 0, -1.5;...   % pt 16
     ]';
 
+V=diag([50,50,50])*V;
+
 % define faces as a list of vertices numbered above
   F = [...
         7, 8, 9, 10;...  % wing
@@ -171,7 +174,7 @@ V = [...
       myyellow;...  % front 4
       myblue;...  % mid 1
       myblue;...  % mid 2
-      myblue;...  % mid 3
+      myred;...  % mid 3
       myblue;...  % mid 4
     ];
 end

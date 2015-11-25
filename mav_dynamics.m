@@ -122,7 +122,7 @@ function sys=mdlDerivatives(t,x,uu, P)
 
     pn    = x(1);
     pe    = x(2);
-    pe    = x(3);
+    h    = x(3);
     u     = x(4);
     v     = x(5);
     w     = x(6);
