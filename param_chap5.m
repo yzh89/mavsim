@@ -1,4 +1,4 @@
-P.gravity = 9.8;
+P.gravity = 9.81;
    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Params for Aersonade UAV
