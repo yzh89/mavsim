@@ -113,7 +113,6 @@ P.r0     = x_trim(12);  % initial body frame yaw rate
 % compute different transfer functions
 % [T_phi_delta_a,T_chi_phi,T_theta_delta_e,T_h_theta,T_h_Va,T_Va_delta_t,T_Va_theta,T_v_delta_r]...
 %     = compute_tf_model(x_trim,u_trim,P);
+[A_lon, B_lon, A_lat, B_lat, A, B] = compute_ss_model('mavsim_trim',x_trim,u_trim);
 
-% linearize the equations of motion around trim conditions
-[A_lon, B_lon, A_lat, B_lat] = compute_ss_model('mavsim_trim',x_trim,u_trim);
 
