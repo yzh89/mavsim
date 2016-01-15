@@ -77,15 +77,15 @@ R     = Inf;         % desired radius (m) - use (+) for right handed orbit,
 P.Ts = 0.01;
 
 % first cut at initial conditions
-P.pn0    = 0;  % initial North position
+P.pn0    = 320;  % initial North position
 P.pe0    = 0;  % initial East position
-P.pd0    = 0;  % initial Down position (negative altitude)
+P.pd0    = 10;  % initial Down position (negative altitude)
 P.u0     = P.Va0; % initial velocity along body x-axis
 P.v0     = 0;  % initial velocity along body y-axis
 P.w0     = 0;  % initial velocity along body z-axis
 P.phi0   = 0;  % initial roll angle
 P.theta0 = 0;  % initial pitch angle
-P.psi0   = 0;  % initial yaw angle
+P.psi0   = pi;  % initial yaw angle
 P.p0     = 0;  % initial body frame roll rate
 P.q0     = 0;  % initial body frame pitch rate
 P.r0     = 0;  % initial body frame yaw rate
@@ -97,9 +97,9 @@ P.x_trim = x_trim;
 
 % set initial conditions to trim conditions
 % initial conditions
-P.pn0    = 0;  % initial North position
+P.pn0    = 320;  % initial North position
 P.pe0    = 0;  % initial East position
-P.pd0    = 0;  % initial Down position (negative altitude)
+P.pd0    = 10;  % initial Down position (negative altitude)
 P.u0     = x_trim(4);  % initial velocity along body x-axis
 P.v0     = x_trim(5);  % initial velocity along body y-axis
 P.w0     = x_trim(6);  % initial velocity along body z-axis
